@@ -1,0 +1,33 @@
+﻿@model List<CRUD_Operation.Models.EmpModel>
+@{
+    ViewBag.Title = "Home Page";
+}
+ 
+<h1>EmpData</h1>
+
+<table class="table table-striped">
+
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Sallary</th>
+        <th>Department</th>
+        <th>Edit</th>
+        <th>Delete</th>
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>@item.id</td>
+    <td>@item.name</td>
+    <td>@item.sal</td>
+    <td>@item.dep</td>
+    <td> <a href="@Url.Action("EmpEdit", "AddEmp", new {item.id})" , class="btn btn-primary">edit </a></td>
+    <td> <a href="@Url.Action("empDelete", "Home", new {item.id})" , class="btn btn-danger">delete </a></td>
+</tr>
+
+    }
+
+</table>

@@ -1,0 +1,46 @@
+﻿@model CRUD_Operation.Models.EmpModel
+
+@{
+    ViewBag.Title = "AddEmpDetail";
+}
+
+
+@if (@ViewBag.id == 0) {
+
+    <h2>>addEmpDetail</h2>
+    }
+    else
+    {
+
+        <h2>EditEmployee</h2>
+
+     }
+ 
+@using (Html.BeginForm("AddEmpDetail", "AddEmp", FormMethod.Post))
+{
+
+    @Html.HiddenFor(m => m.id);
+
+    <div class="form-group">
+        <label>Name</label>
+        @Html.TextBoxFor(m => m.name, new { @class = "form-control", @placeholder = "Name", @required = "required" })
+
+    </div>
+
+    <div class="form-group">
+        <label>Sallary</label>
+        @Html.TextBoxFor(m => m.sal, new { @class = "form-control", @placeholder = "Sallary", @required = "required" })
+
+    </div>
+
+    <div class="form-group">
+        <label>Department</label>
+        @Html.TextBoxFor(m => m.dep, new { @class = "form-control", @placeholder = "Department", @required = "required" })
+
+    </div>
+
+
+    <button type="submit" ,class="btn btn-primary">Submit</button>
+
+
+}
